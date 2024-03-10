@@ -1,35 +1,36 @@
-import { useState } from "react"
+import useField from "../hooks/useField";
+import useLogin from "../hooks/useLogin";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+const Login = ({ setIsAuthenticated }) => {
+  const navigate = useNavigate();
+  const email = useField("email");
+  const password = useField("password");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const { login, error } = useLogin("/api/users/login");
 
-    console.log(email, password)
-  }
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    await login({ email: email.value, password: password.value });
+    if (!error) {
+      console.log("success");
+      setIsAuthenticated(true);
+      navigate("/");
+    }
+  };
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <h3>Log In</h3>
-      
-      <label>Email address:</label>
-      <input 
-        type="email" 
-        onChange={(e) => setEmail(e.target.value)} 
-        value={email} 
-      />
-      <label>Password:</label>
-      <input 
-        type="password" 
-        onChange={(e) => setPassword(e.target.value)} 
-        value={password} 
-      />
+    <>
+      <form className="signup" onSubmit={handleFormSubmit}>
+        <h3>Login</h3>
+        <label>Email address:</label>
+        <input {...email} />
+        <label>Password:</label>
+        <input {...password} />
+        <button>Sign up</button>
+      </form>
+    </>
+  );
+};
 
-      <button>Log in</button>
-    </form>
-  )
-}
-
-export default Login
+export default Login;
