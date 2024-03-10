@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #6bd7ec;
   --error: #e7195a;
 }
 body {
@@ -31,69 +31,43 @@ header a {
   padding: 20px;
   margin: 0 auto;
 }
+/* Navbar */
+
+.container a {
+  color: var(--primary);
+}
+
 
 /* homepage */
 .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
-}
-.fitness-details {
-  background: #fff;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-.fitness-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.fitness-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.fitness-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-}
 
-.fitness-details {
-  background: #fff;
+}
+.posts{
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
+  padding: 10%;
+}
+.posts button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
   border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
-.fitness-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.fitness-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.fitness-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
+}
+.postslist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  border: 6px solid var(--primary);
+  border-radius: 3px;
+  padding: 50px;
+}
+.postslist span{
+  font-size: 25px;
 }
 
 /* new workout form */
